@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        /* standardizes view */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, sans-serif;
+        }
+        /* how the page itself looks */
+        body {
+            /* horizontal/vertical centering (personal preference) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* body needs to reach whole viewable area for proper vertical centering */
+            min-height: 100vh;
+            /* background color */
+            background: linear-gradient(100deg, #00414f, #0495d9);
+        }
+        /* calculator appearance */
+        .calculator {
+            /* calculator body color */
+            background: linear-gradient(150deg, #5d5b5b, #454545);
+            /* apple doesn't own rounded corners */
+            border-radius: 10px;
+            /* shadow for effect */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            /* Set fixed width for calculator */
+            width: 300px;
+            /* space between the calculator itself and the buttons */
+            padding: 10px;
+        }
+        /* display screen appearance */
+        .display {
+            /* cool greens for vibe */
+            background: linear-gradient(150deg, #024a05, #077c16);
+            /* radioactive numbers */
+            color: #46c718;
+            font-size: 2rem;
+            /* on a calculator, the displayed numbers are on the right */
+            text-align: right;
+            padding: 20px;
+            /* pads between the bottom of the display and the buttons */
+            margin-bottom: 20px;
+            font-family: Impact, Arial, Helvetica, sans-serif;
+            /* determines display size */
+            min-height: 80px;
+            /* allows big numbers to wrap by splitting into new lines */
+            word-wrap: break-word;
+        }
+        /* error state for display */
+        .display.error {
+            /* red background for errors */
+            background: linear-gradient(150deg, #7a0000, #cc0000);
+            /* bright red text for visibility */
+            color: #ff6b6b;
+        }
+        /* overall button layout */
+        .button-container {
+            /* creates the button panel */
+            display: grid;
+            /* 4 columns for the layout */
+            grid-template-columns: repeat(4, 1fr);
+            /* pads out the grid */
+            gap: 10px;
+        }
+        /* button style */
+        button {
+            background-color: #343434;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-size: 1rem;
+            padding: 15px 0;
+            /* needs to imply that the button can be clicked */
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        /* when you hover over a button, something's gotta happen */
+        button:hover {
+            /* gives the user visual feedback for hovering */
+            background-color: #8e8484;
+        }
+        /* operator style and hovering */
+        .operator {
+            /* bright color, so you know it's not a number */
+            background-color: #c17e03;
+        }
+        .operator:hover {
+            background-color: #fca52a;
+        }
+        /* decimal style and hovering */
+        .decimal {
+            background-color: #343434;
+        }
+        .decimal:hover {
+            background-color: #8e8484;
+        }
+        /* equals style and hovering - now spans two columns */
+        .equals {
+            background-color: #c17e03;
+            grid-column: span 2;
+        }
+        .equals:hover {
+            background-color: #fca52a;
+        }
+        /* clear button styling */
+        .clear {
+            background-color: #bb0000;
+            color: #000;
+        }
+        .clear:hover {
+            background-color: #ff0000;
+        }
+        /* power button styling - non functional */
+        .power {
+            background-color: #343434;
+        }
+        .power:hover {
+            background-color: #8e8484;
+        }
+    </style>
+</head>
+<body>
+    <!-- calculator containers defined here-->
+    <div class="calculator"> 
+        <div class="display" id="display">0</div>
+        <div class="button-container">
+            <!-- rows and button functions designated here-->
+            <button class="clear" onclick="clearAll()">C</button>
+            <button class="clear" onclick="clearEntry()">CE</button>
+            <button class="power" title="Under Construction - Stay Tuned!">^</button> <!--this was added as a placeholder - since Math.pow would be needed, it would not fit the rubric -->
+            <button class="operator" onclick="inputOperator('*')">×</button>
+            
+            <button onclick="inputDigit('9')">9</button>
+            <button onclick="inputDigit('8')">8</button>
+            <button onclick="inputDigit('7')">7</button>
+            <button class="operator" onclick="inputOperator('/')">÷</button>
+            
+            <button onclick="inputDigit('6')">6</button>
+            <button onclick="inputDigit('5')">5</button>
+            <button onclick="inputDigit('4')">4</button>
+            <button class="operator" onclick="inputOperator('-')">-</button>
+            
+            <button onclick="inputDigit('3')">3</button>
+            <button onclick="inputDigit('2')">2</button>
+            <button onclick="inputDigit('1')">1</button>
+            <button class="operator" onclick="inputOperator('+')">+</button>
+            
+            <button class="decimal" onclick="inputDecimal()">.</button>
+            <button onclick="inputDigit('0')">0</button>
+            <button class="equals" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let currentDisplay = '0'; // value currently displayed on the screen
+        // the mathematical expression (firstNumber + currentOperator + secondNumber) 
+        let firstNumber = null; // stores the first number of the expression 
+        let currentOperator = null; // stores the selected operator
+        let secondNumber = null; // stores the second number of the expression
+        // the above are set to null when nothing has been entered
+        let resetDisplay = false; // tracks when display should reset for new input
+        let lastValue = ''; // tracks the previous display value to detect changes
+
+        function updateDisplay() { // defines function to update the calculator display 
+            const displayElement = document.getElementById('display');   // grabs display style elements
+            if (currentDisplay === 'Ouch!' && lastValue !== 'Ouch!') { // if the display shows that the calculator is in pain...
+                displayElement.classList.add('error'); // adds error class to display to show the pain of the calculator
+            } else if (currentDisplay !== 'Ouch!' && lastValue === 'Ouch!') { // if the display is no longer an error but it used to be...
+                displayElement.classList.remove('error'); // no more ouchies, no need to cry anymore
+            }
+            
+            displayElement.textContent = currentDisplay; // sets the extracted text to be displayed
+            lastValue = currentDisplay; // update the last display value
+        }
+
+        function inputDigit(digit) { // function for when a digit is pressed
+            if (currentDisplay === '0' || resetDisplay) { // are we in the initial zeroed state or should we reset?
+                currentDisplay = digit; // replace the zero with something more interesting... the user's inputted value.
+                resetDisplay = false; // do not reset
+            } else { // this can't be the zeroed state, is this another one of your digits?
+                currentDisplay += digit; // appends the new digit to the value
+            }
+            updateDisplay(); // user display is now showing the inputted values
+        }
+
+        function inputDecimal() { // function for decimal points
+            if (currentDisplay === 'Ouch!' || resetDisplay) { // decimals can't be added to /x0 results so it resets to 0
+                currentDisplay = '0.'; // if you press decimal on a fresh display, it will add a decimal to the zero
+                resetDisplay = false; // does not need to reset 
+                updateDisplay(); 
+                return;
+            }
+            if (!currentDisplay.includes('.')) { // if there is no decimal entered, add one to the end
+                currentDisplay += '.';
+                updateDisplay(); 
+            }
+        }
+
+        function inputOperator(operator) { // defines function for when operator button (+, -, *, /) is pressed
+            if (currentOperator !== null && !resetDisplay) {
+                calculateResult(); // is there already an operator? lets calculate that. 
+            }
+            firstNumber = parseFloat(currentDisplay); // the current display string is converted to a float and stored as the first number 
+            currentOperator = operator; // selected operator is stored
+            resetDisplay = true; // resets display for next number input
+        }
+
+        function clearEntry() { // resets the current display, keeping the first number and operator if they've already been entered
+            currentDisplay = '0';
+            resetDisplay = false;
+            updateDisplay();
+        }
+
+        function clearAll() { // first number, operator, and second number are restored to initial null values
+            currentDisplay = '0';
+            firstNumber = null;
+            currentOperator = null;
+            secondNumber = null;
+            resetDisplay = false;
+            updateDisplay();
+        }
+
+        function calculateResult() { // defines function for when the equals button is pressed
+            if (firstNumber === null || currentOperator === null) return; // were we given enough to start? send it back if we don't have firstNumber and an operator
+            if (!resetDisplay) { // only handle/parse the second number if there's no result yet
+                secondNumber = parseFloat(currentDisplay); // converts the currentDisplay to the secondNumber, stores secondNumber
+            }
+            
+            let result; // defines variable to store result
+            // is it addition?
+            if (currentOperator === '+') { // check the operator sign entered, if +...
+                result = firstNumber + secondNumber; // perform addition
+            } 
+            // is it subtraction?
+            else if (currentOperator === '-') { // check the operator sign entered, if -...
+                result = firstNumber - secondNumber; // perform subtraction
+            } 
+            // is it multiplication?
+            else if (currentOperator === '*') { // check the operator sign entered, if *...
+                result = firstNumber * secondNumber; // perform multiplication
+            } 
+            // is it division?
+            else if (currentOperator === '/') { // // check the operator sign entered, if /...
+                if (secondNumber === 0) { // second number is checked for potentially smuggled zeroes
+                    result = 'Ouch!'; // show the user that the calculator did not like that
+                } else { // you're good to go. be on your way.
+                    result = firstNumber / secondNumber; // perform division
+                }
+            }
+
+            currentDisplay = result.toString(); // converts result to string for display
+            firstNumber = result; // the result becomes the new firstNumber variable for continuous operation
+            resetDisplay = true; // resets display for next input
+            
+            updateDisplay(); // display updated to show result
+        }
+
+        updateDisplay(); // when the page loads, the display will be initialized to zero
+    </script>
+</body>
+</html>
