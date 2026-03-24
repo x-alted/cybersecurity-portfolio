@@ -4,49 +4,57 @@ This repository is a curated collection of my work from the Cybersecurity diplom
 
 ## About Me
 
-I am a cybersecurity professional with a passion for learning, understanding and mitigating complex risks. With a decade of prior expeerience in management, my experience in cybersecurity spans from hands-on technical assessments (like penetration testing and vulnerability analysis) to high-level strategic planning (such as threat modeling and risk assessments). I am dedicated to building resilient systems and educating users on security best practices.
+I am a cybersecurity professional with a passion for learning, understanding and mitigating complex risks. With a decade of prior experience in management, my experience in cybersecurity spans from hands-on technical assessments (like penetration testing and vulnerability analysis) to high-level strategic planning (such as threat modeling and risk assessments). I am dedicated to building resilient systems and educating users on security best practices.
 
 ## Repository Structure
 
-The repository is organized into several thematic directories, each containing detailed project reports and code samples.
+The repository is organized into thematic directories. Each folder contains detailed project reports, documentation, and code samples.
 
-### 1. Security Audits & Assessments
-This section focuses on evaluating the security posture of systems and physical environments.
-
-- **`Physical-Security-Audit/`** : Contains a comprehensive physical security audit for a government facility. This report identifies critical vulnerabilities in perimeter security, server room hardening, and access control, providing a detailed management action plan.
-- **`Threat-Risk-Assessment-IRP/`** : A Threat Risk Assessment (TRA) that demonstrates how to identify and value assets, analyze threats, and use the results to prioritize incident response (IR) actions.
-
-### 2. Penetration Testing & Vulnerability Analysis
+### 1. Penetration Testing (`penetration-testing/`)
 This section showcases my ability to simulate real-world attacks to find and exploit system vulnerabilities.
 
-- **`Penetration-Testing-Report-Looz/`** : A detailed technical report from a penetration test on the "Looz" server. It documents a complete attack chain from information disclosure to full root compromise, culminating in a critical recommendation to rebuild the system.
-- **`Bulldog-Industries-Penetration-Test/`** : A black-box penetration test of the Bulldog Industries web application. This report details the discovery of hardcoded credentials, weak password hashes, and a web-shell bypass that led to a reverse shell and root privilege escalation.
-- **`Wireless-Network-Penetration-Test/`** : A final assignment detailing an attack on three different wireless networks. It includes successful WPA handshake captures, WPS Pixie-Dust attacks, and an analysis of why one network remained secure.
-- **`Network-Alerts-Lab/`** : A lab exercise demonstrating the interaction between a firewall (iptables), an Intrusion Detection System (Snort), and network traffic analysis using `tcpdump` to detect and block malicious traffic.
+- **Looz Technical Report** – A detailed penetration test report documenting a complete attack chain from information disclosure to full root compromise, culminating in a recommendation to rebuild the system.
+- **Vulnerabilities & Exploits – Final Assignment** – A hands-on lab demonstrating exploitation of a vulnerable server, including root access, file exfiltration, and website defacement.
+- **Wireless Network Test** – An attack on three wireless networks, covering WPA handshake capture, WPS Pixie-Dust attacks, and analysis of network security postures.
+- **Penetration Testing – Website Scan** – A black-box penetration test of a web application, detailing discovery of hardcoded credentials, weak password hashes, and a reverse shell.
 
-### 3. Network & System Security Configuration
-This section covers the practical configuration of secure network and system environments.
+### 2. Database Security (`database-security/`)
+This folder contains a complete SQL schema and sample data for a comprehensive music database.
 
-- **`Ubuntu-Firewall-SSH-Scripting/`** : A lab guide and report on configuring the Uncomplicated Firewall (UFW) and SSH on Ubuntu. It also includes a simple bash scripting exercise for passing command-line arguments.
-- **`Kuber-Tuber-Project/`** : A team project detailing the build of a "Kuber-Tuber" system. This includes the complete setup and testing checklist for a hybrid cloud/edge cluster using K3s on Raspberry Pis and a mini PC, with a focus on network configuration, node failure scenarios, and remote access via Tailscale.
+- **Music Database** – A normalized relational database modeling a complex music ecosystem (artists, bands, albums, tracks, producers, labels, genres). Includes ERD, SQL scripts, and documentation.
+- **SQL Files** – All table creation, foreign key, and data population scripts.
 
-### 4. Threat Modeling & Risk Management
+### 3. Risk Management (`risk-management/`)
 This section demonstrates my ability to identify threats and manage risk in complex systems.
 
-- **`IoT-Threat-Modeling/`** : A team-based assignment that applies STRIDE and DREAD methodologies to model threats in a home IoT system. It includes data flow diagrams, risk assessments, and mitigation strategies.
-- **`Publishing-Ransomware-Guide/`** : A strategic guide for a publisher on mitigating malware and ransomware risks, covering the human firewall, backup strategies, network segmentation, and third-party risk management.
+- **Physical Security Audit** – A comprehensive audit of a government facility, identifying vulnerabilities in perimeter security, server room hardening, and access control, with a detailed management action plan.
+- **Threat Modeling to Assess Risk in an IoT System** – A team-based assignment applying STRIDE and DREAD methodologies to model threats in a home IoT system, including data flow diagrams and mitigation strategies.
+- **A Publisher's Guide to Mitigating Malware & Ransomware** – A strategic guide covering the human firewall, backup strategies, network segmentation, and third-party risk management.
 
-### 5. Coding & Scripting
-This section contains code samples and scripts I have developed.
+### 4. Incident Handling (`incident-handling/`)
+This section focuses on incident response planning and threat risk assessments.
 
-- **`Music-Database/`** : A complete SQL schema and sample data for a complex music database. This project demonstrates advanced relational database design, normalization, and the handling of many-to-many relationships.
-- **`Web-Calculator-Pseudocode/`** : A breakdown of the logic and pseudocode behind a web-based calculator, showcasing my understanding of front-end logic and user interaction.
+- **Threat Risk Assessment & Incident Response Prioritization** – A TRA that identifies assets, threats, and vulnerabilities, then uses the results to prioritize incident response actions.
+- **NIST CSF + Incident Response** – A mapping of the NIST Cybersecurity Framework to incident response processes.
 
-### 6. Security Theory & Analysis
-This section includes essays and analyses that explore the broader context of cybersecurity.
+### 5. Programming (`programming/`)
+This folder contains code samples and scripts I have developed, organized by language.
 
-- **`The-Machine-Stops-Analysis/`** : A personal reflection and literary analysis of E.M. Forster's "The Machine Stops," connecting its themes of technological dependency and single points of failure to modern cybersecurity challenges like AI adoption and cloud reliance.
-- **`WebTools-Wapiti/`** : A concise, presentation-style guide to the Wapiti web application vulnerability scanner, outlining its features, use cases, and common commands.
+- **Bash Shell** – Shell scripts demonstrating automation and system administration tasks (e.g., `print_three.sh`, `evenodd.sh`).
+- **C** – Simple C programs (e.g., `bubble.c`, `filebasedcalculator.c`).
+- **HTML/JavaScript** – A web-based calculator showing front-end logic.
+- **PowerShell** – Scripts for system administration and security tasks (e.g., `list_large_files.ps1`, `Load-Users-to-ActiveDirectory.ps1`).
+
+### 6. Knowledge Base (`knowledge-base/`)
+This section includes reference materials, user guides, and analyses that explore the broader context of cybersecurity.
+
+- **Networking** – Resources on network security, including firewall configuration, SSH, and network scanning tools.
+- **User Guides** – Step-by-step guides for installing and using security tools (e.g., VPNs, anti-virus software) and social engineering awareness presentations.
+- **The Machine Stops (Cybersecurity Literary Analysis)** – A personal reflection connecting E.M. Forster's story to modern cybersecurity challenges like AI adoption and cloud reliance.
+- **Web Tool Summary – Wapiti** – A concise guide to the Wapiti web application vulnerability scanner, outlining its features, use cases, and common commands.
+
+### Private Capstone: Kuber-Tuber
+My final capstone project, **kuber-tuber**, is a K3s-based Raspberry Pi cluster for live cybersecurity testing. It remains private until the project completes. The repository includes documentation on setup, network topology, service configuration, issues log, and test results.
 
 ## Key Skills Demonstrated
 
@@ -65,16 +73,13 @@ This portfolio highlights proficiency in the following areas:
 Each project is contained within its own folder with a descriptive name. Inside each folder, you will find PDF reports, markdown documentation, and source code files.
 
 To get a quick overview of my capabilities, I recommend starting with:
-1.  **`Penetration-Testing-Report-Looz/`** for a comprehensive example of technical testing and reporting.
-2.  **`Physical-Security-Audit/`** for an example of a non-technical, strategic assessment.
-3.  **`Kuber-Tuber-Project/Setup-&-Testing-Checklist.md`** for a practical example of a complex, hands-on team project.
+
+- **Penetration Testing/Looz Technical Report** – for a comprehensive example of technical testing and reporting.
+- **Risk Management/Physical Security Audit** – for an example of a non-technical, strategic assessment.
+- **Programming** – to see my scripting and development skills across multiple languages.
 
 ## Contact & Acknowledgments
 
 This portfolio is a representation of my work during my cybersecurity diploma program. I would like to thank my instructors and peers for their guidance and collaboration.
 
-For any inquiries, please feel free to contact me via [altimaeus@proton.me]
-
----
-
-**Disclaimer:** The findings and reports in this repository were conducted in controlled, authorized environments for educational purposes.
+For any inquiries, please feel free to contact me via [altimaeus@proton.me](mailto:altimaeus@proton.me).
