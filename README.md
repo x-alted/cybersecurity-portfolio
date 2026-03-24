@@ -1,10 +1,10 @@
-# Cybersecurity Portfolio - Alex MacIntyre
+# Cybersecurity Portfolio
 
-Welcome to my cybersecurity portfolio. This repository is a curated collection of my work from the Cybersecurity diploma program at NSCC's Waterfront Campus. It showcases my practical skills and theoretical understanding across various domains, including penetration testing, network security, physical security, incident response, and secure system design.
+This repository is a curated collection of my work from the Cybersecurity diploma program at NSCC's Waterfront Campus. It showcases my practical skills and theoretical understanding across various domains, including penetration testing, network security, physical security, incident response, and secure system design.
 
 ## About Me
 
-I am a cybersecurity professional with a passion for understanding and mitigating complex security risks. With a decade of prior expeerience in management, my experience in cybersecurity spans from hands-on technical assessments (like penetration testing and vulnerability analysis) to high-level strategic planning (such as threat modeling and risk assessments). I am dedicated to building resilient systems and educating users on security best practices.
+I am a cybersecurity professional with a passion for learning, understanding and mitigating complex risks. With a decade of prior expeerience in management, my experience in cybersecurity spans from hands-on technical assessments (like penetration testing and vulnerability analysis) to high-level strategic planning (such as threat modeling and risk assessments). I am dedicated to building resilient systems and educating users on security best practices.
 
 ## Repository Structure
 
