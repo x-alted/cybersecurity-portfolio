@@ -1,4 +1,4 @@
-# Cybersecurity Portfolio
+### Alex MacIntyre's Cybersecurity Portfolio
 
 This repository is a curated collection of work from the Cybersecurity Diploma program at NSCC's Waterfront Campus, showcasing practical skills and theoretical understanding across various subjects within the field, including network security, incident response, peneration testing, scripting, and secure system design. 
 
@@ -78,8 +78,6 @@ To get a quick overview of my capabilities, I recommend starting with:
 - **Risk Management/Physical Security Audit** – for an example of a non-technical, strategic assessment.
 - **Programming** – to see my scripting and development skills across multiple languages.
 
-## Contact & Acknowledgments
+## Contact 
 
-This portfolio is a representation of my work during my cybersecurity diploma program. I would like to thank my instructors and peers for their guidance and collaboration.
-
-For any inquiries, please feel free to contact me via [altimaeus@proton.me](mailto:altimaeus@proton.me).
+For any inquiries, please feel free to contact me via [alexmacintyre@hotmail.com](mailto:alexmacintyre@hotmail.com).
