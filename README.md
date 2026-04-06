@@ -1,10 +1,10 @@
 # Cybersecurity Portfolio
 
-This repository is a curated collection of my work from the Cybersecurity diploma program at NSCC's Waterfront Campus. It showcases my practical skills and theoretical understanding across various domains, including penetration testing, network security, physical security, incident response, and secure system design.
+This repository is a curated collection of work from the Cybersecurity Diploma program at NSCC's Waterfront Campus, showcasing practical skills and theoretical understanding across various subjects within the field, including network security, incident response, peneration testing, scripting, and secure system design. 
 
 ## About Me
 
-I am a cybersecurity professional with a passion for learning, understanding and mitigating complex risks. With a decade of prior experience in management, my experience in cybersecurity spans from hands-on technical assessments (like penetration testing and vulnerability analysis) to high-level strategic planning (such as threat modeling and risk assessments). I am dedicated to building resilient systems and educating users on security best practices.
+To exalt something means to elevate it; to raise its rank or character. I am a curious individual with a major passion for expanding my skills. A quick learner, my workflow involves breaking down my understanding of a situation into the perspectives it can be seen through, and transforming a large, ambitious goal into accomplishable and measured smaller accomplishments. Cybersecurity is the industry that benefits these traits the most, and I hope to show, through this portfolio, the depth of the work that I produce, the learning processes at hand, and how it may be applied in a real world setting. 
 
 ## Repository Structure
 
