@@ -1,4 +1,4 @@
-### Alex MacIntyre's Cybersecurity Portfolio
+## Alex MacIntyre's Cybersecurity Portfolio
 
 This repository is a curated collection of work from the Cybersecurity Diploma program at NSCC's Waterfront Campus, showcasing practical skills and theoretical understanding across various subjects within the field, including network security, incident response, peneration testing, scripting, and secure system design. 
 
